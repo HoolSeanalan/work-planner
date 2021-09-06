@@ -13,9 +13,8 @@ const iToS = {
 };
 
 //Clears tasks and updates the day.
-function newDate() {
-    const now = new Date();
-    let newDay = [now];
+function newDate(nowDate) {
+    let newDay = [nowDate];
     window.localStorage.setItem(dayJSON, JSON.stringify(newDay));
 }
 
@@ -28,7 +27,7 @@ function checkDate() {
     if (savedDate.getDate != now.getDate ||
         savedDate.getMonth != now.getMonth ||
         savedDate.getFullYear != now.getFullYear) {
-            newDate();
+            newDate(now);
     }
 
     document.getElementById("currentDay").innerHTML = now.toDateString();
