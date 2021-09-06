@@ -1,6 +1,6 @@
 //Variables used in functions for ease.
 const dayJSON = 'savedDay';
-const now = new Date()
+var now = new Date();
 const iToS = {
     9: 'Nine',
     10: 'Ten',
@@ -11,18 +11,18 @@ const iToS = {
     15: 'Fifteen',
     16: 'Sixteen',
     17: 'Seventeen'
-}
+};
 
 //Clears tasks and updates the day.
 function newDate() {
-    const newDay = [now]
+    let newDay = [now];
     window.localStorage.setItem(dayJSON, JSON.stringify(newDay));
 }
 
 //Checks if the date needs to be updated and sets the date at the top of the page.
 function checkDate() {
-    const savedDay = JSON.parse(window.localStorage.getItem(dayJSON)) ?? []
-    const savedDate = new Date(savedDay[0])
+    let savedDay = JSON.parse(window.localStorage.getItem(dayJSON)) ?? [];
+    let savedDate = new Date(savedDay[0]);
 
     if (savedDate.getDate != now.getDate ||
         savedDate.getMonth != now.getMonth ||
@@ -52,7 +52,7 @@ function checkHour() {
 
 //Displays the tasks saved in local storage.
 function loadTasks() {
-    const savedDay = JSON.parse(window.localStorage.getItem(dayJSON) ?? []);
+    let savedDay = JSON.parse(window.localStorage.getItem(dayJSON) ?? []);
 
     for (i = 9; i<18; i++) {
         document.getElementById("hour"+iToS[i]+"Text").innerHTML = savedDay[i-8] ?? "";
@@ -61,8 +61,8 @@ function loadTasks() {
 
 //Saves the content of the timeblocks to local storage.
 function save(hour) {
-    const savedDay = JSON.parse(window.localStorage.getItem(dayJSON)) ?? []
-    const newText = document.getElementById("hour"+iToS[hour]+"Text").value
+    let savedDay = JSON.parse(window.localStorage.getItem(dayJSON)) ?? [];
+    let newText = document.getElementById("hour"+iToS[hour]+"Text").value;
 
     savedDay[hour-8] = newText;
     window.localStorage.setItem(dayJSON, JSON.stringify(savedDay));
