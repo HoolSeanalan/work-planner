@@ -14,6 +14,7 @@ const iToS = {
 
 //Clears tasks and updates the day.
 function newDate() {
+    const now = new Date();
     let newDay = [now];
     window.localStorage.setItem(dayJSON, JSON.stringify(newDay));
 }
