@@ -1,7 +1,6 @@
 //Variables used in functions for ease.
 const dayJSON = 'savedDay';
 const now = new Date()
-const savedDay = JSON.parse(window.localStorage.getItem(dayJSON)) ?? []
 const iToS = {
     9: 'Nine',
     10: 'Ten',
@@ -22,6 +21,7 @@ function newDate() {
 
 //Checks if the date needs to be updated and sets the date at the top of the page.
 function checkDate() {
+    const savedDay = JSON.parse(window.localStorage.getItem(dayJSON)) ?? []
     const savedDate = new Date(savedDay[0])
 
     if (savedDate.getDate != now.getDate ||
@@ -61,6 +61,7 @@ function loadTasks() {
 
 //Saves the content of the timeblocks to local storage.
 function save(hour) {
+    const savedDay = JSON.parse(window.localStorage.getItem(dayJSON)) ?? []
     const newText = document.getElementById("hour"+iToS[hour]+"Text").value
 
     savedDay[hour-8] = newText;

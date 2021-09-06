@@ -11,4 +11,4 @@ CSS
 Javascript
 
 ## Screenshot
-<img src=".assets/images/screenshot.PNG"></img>
+<img src="/assets/images/screenshot.PNG"></img>
