@@ -1,6 +1,5 @@
 //Variables used in functions for ease.
 const dayJSON = 'savedDay';
-var now = new Date();
 const iToS = {
     9: 'Nine',
     10: 'Ten',
@@ -15,12 +14,14 @@ const iToS = {
 
 //Clears tasks and updates the day.
 function newDate() {
+    let now = new Date();
     let newDay = [now];
     window.localStorage.setItem(dayJSON, JSON.stringify(newDay));
 }
 
 //Checks if the date needs to be updated and sets the date at the top of the page.
 function checkDate() {
+    let now = new Date();
     let savedDay = JSON.parse(window.localStorage.getItem(dayJSON)) ?? [];
     let savedDate = new Date(savedDay[0]);
 
@@ -35,6 +36,7 @@ function checkDate() {
 
 //Checks the current hour and colors timeblocks accordingly.
 function checkHour() {
+    let now = new Date();
     currentHour = now.getHours();
     for (i = 9; i<18; i++) {
         var hourBlock = document.getElementById("hour"+iToS[i]+"Text");
