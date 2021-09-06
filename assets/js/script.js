@@ -41,7 +41,7 @@ function checkHour() {
         if (i<currentHour) {
             hourBlock.classList.add("past");
         }
-        else if (i=currentHour) {
+        else if (i==currentHour) {
             hourBlock.classList.add("present");
         }
         else if (i>currentHour) {
