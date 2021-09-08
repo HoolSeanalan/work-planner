@@ -30,7 +30,7 @@ function checkDate() {
             newDate();
     }
 
-    document.getElementById("currentDay").innerHTML = savedDate.toDateString();
+    document.getElementById("currentDay").innerHTML = now.toDateString();
 }
 
 //Checks the current hour and colors timeblocks accordingly.
